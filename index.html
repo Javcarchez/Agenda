@@ -188,6 +188,58 @@ textarea{resize:vertical;min-height:72px}input:focus,select:focus,textarea:focus
 .status-line{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.sep{height:1px;background:var(--line);margin:12px 0}
 .slider{width:100%;height:34px;background:none;border:0;padding:0}input[type=range]{-webkit-appearance:none;height:5px;border-radius:3px;background:var(--line);padding:0}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--berry);border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
 
+
+/* ===== Beauty OS v0.3: Calendar + Content + Inventory + Setup ===== */
+.month-cal{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:14px}
+.month-cal-head{display:grid;grid-template-columns:38px 1fr auto 38px;gap:7px;align-items:center;margin-bottom:12px}
+.month-cal-head .title{text-align:center;min-width:0}
+.month-cal-head .title b{display:block;font-family:var(--serif);font-size:20px;font-weight:600;text-transform:capitalize}
+.month-cal-head .title span{display:block;font-family:var(--mono);font-size:8.5px;color:var(--ink3);letter-spacing:.09em;text-transform:uppercase;margin-top:2px}
+.calnav{width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:var(--paper2);display:grid;place-items:center;color:var(--ink)}
+.calnav svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
+.today-mini{height:38px;padding:0 10px;border:1px solid var(--line);background:var(--paper2);border-radius:11px;font-family:var(--mono);font-size:8.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink2)}
+.cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:5px}
+.cal-weekdays span{text-align:center;font-family:var(--mono);font-size:7.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding:3px 0}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.cal-cell{min-height:76px;border:1px solid var(--line);background:#FFFDFD;border-radius:12px;padding:7px 6px;position:relative;cursor:pointer;overflow:hidden;transition:.15s}
+.cal-cell:active{transform:scale(.98)}.cal-cell.out{opacity:.34}.cal-cell.selected{box-shadow:0 0 0 2px rgba(168,48,90,.32);border-color:var(--berry)}
+.cal-cell.today:after{content:"";position:absolute;right:6px;top:6px;width:5px;height:5px;border-radius:50%;background:var(--berry)}
+.cal-cell.good{background:linear-gradient(150deg,#F0FAF6,#E8F6F0);border-color:#CDE8DC}
+.cal-cell.future{background:linear-gradient(150deg,#FFF8FA,#F8EDF2);border-color:#ECD3DE}
+.cal-cell.issue{background:linear-gradient(150deg,#FFF5F3,#FBE6E2);border-color:#EFCBC6}
+.cal-cell .cd{font-family:var(--mono);font-size:9px;font-weight:600}
+.cal-cell .cm{font-family:var(--mono);font-size:10px;font-weight:600;margin-top:12px;white-space:nowrap;letter-spacing:-.03em}
+.cal-cell.good .cm{color:var(--pine)}.cal-cell.future .cm{color:var(--berry-d)}.cal-cell.issue .cm{color:var(--red)}
+.cal-cell .cc{font-size:7.8px;color:var(--ink3);margin-top:3px;white-space:nowrap}
+.cal-dots{display:flex;gap:3px;margin-top:5px}.cal-dots i{width:4px;height:4px;border-radius:50%;background:var(--line)}.cal-dots i.done{background:var(--pine)}.cal-dots i.booked{background:var(--berry)}.cal-dots i.cancelled{background:var(--red)}
+.day-finance{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:11px 0}
+.day-finance .fstep{padding:9px 4px}.day-finance .fstep b{font-size:16px}
+.day-card{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:13px;margin-bottom:8px;cursor:pointer}
+.day-card .top{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}.day-card .name{font-size:13px;font-weight:650}.day-card .amount{font-family:var(--serif);font-size:19px;font-weight:600}
+.day-card .meta{font-size:10.5px;color:var(--ink2);margin-top:4px;line-height:1.4}
+.day-card .profit{font-family:var(--mono);font-size:9.5px;color:var(--pine);margin-top:7px}
+.month-legend{display:flex;gap:11px;flex-wrap:wrap;margin-top:10px;font-family:var(--mono);font-size:8px;color:var(--ink3)}.month-legend i{width:7px;height:7px;border-radius:3px;display:inline-block;margin-right:4px;vertical-align:-1px}
+
+.content-hero{background:linear-gradient(145deg,#341D2C,#6E2948);color:#fff;border-radius:22px;padding:18px;position:relative;overflow:hidden}
+.content-hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-80px;top:-85px;background:radial-gradient(circle,rgba(217,115,145,.5),transparent 68%)}
+.content-hero .mono{color:#D7A6B9}.content-hero .bigline{font-family:var(--serif);font-size:28px;line-height:1.07;margin:8px 0 5px;max-width:290px}.content-hero p{font-size:11px;color:#D6C2CB;line-height:1.5;margin:0;max-width:290px}
+.content-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:13px}.content-kpi{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);border-radius:12px;padding:9px}.content-kpi b{font-family:var(--serif);font-size:18px}.content-kpi span{display:block;font-family:var(--mono);font-size:7px;text-transform:uppercase;letter-spacing:.08em;color:#D2B9C4;margin-top:2px}
+.content-row{display:flex;gap:11px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:11px;margin-bottom:8px}
+.content-thumb{width:52px;height:58px;border-radius:11px;background:linear-gradient(145deg,#EEDBE3,#DCC5CE);display:grid;place-items:center;color:#9B6C80;flex:none}.content-thumb svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.4}
+.content-row .body{min-width:0;flex:1}.content-row .body b{font-size:12.5px;display:block}.content-row .body span{font-size:9.5px;color:var(--ink3);display:block;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.content-row .body small{font-family:var(--mono);font-size:8.5px;color:var(--berry-d);display:block;margin-top:5px}
+.content-plan{display:grid;gap:7px}.plan-item{display:grid;grid-template-columns:46px 1fr auto;gap:9px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:10px}.plan-item .dayn{font-family:var(--mono);font-size:8px;text-transform:uppercase;color:var(--ink3)}.plan-item b{font-size:11.5px}.plan-item span{font-size:9px;color:var(--ink3);display:block;margin-top:2px}
+
+.setup-hero{background:linear-gradient(145deg,#F7EDF1,#FFF);border:1px solid var(--line);border-radius:22px;padding:18px}.setup-hero .pct{font-family:var(--serif);font-size:45px;font-weight:600;line-height:1}.setup-track{height:9px;background:var(--line);border-radius:8px;overflow:hidden;margin-top:12px}.setup-track i{display:block;height:100%;background:linear-gradient(90deg,var(--berry),#D97696);border-radius:8px}
+.checklist{display:grid;gap:7px}.checkitem{display:flex;gap:10px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px;cursor:pointer}.checkitem input{width:18px;height:18px;accent-color:var(--berry);flex:none}.checkitem .ct{min-width:0}.checkitem b{font-size:11.5px}.checkitem span{display:block;font-family:var(--mono);font-size:8.5px;color:var(--ink3);margin-top:2px;text-transform:uppercase;letter-spacing:.06em}
+.investment-big{font-family:var(--serif);font-size:34px;font-weight:600}.investment-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:11px}.investment-row:last-child{border-bottom:0}.investment-row small{display:block;color:var(--ink3);font-size:9px;margin-top:2px}
+.knowledge{display:grid;gap:7px}.knowledge-item{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:11px}.knowledge-item b{font-size:11.5px}.knowledge-item p{font-size:9.8px;color:var(--ink2);line-height:1.45;margin:4px 0 0}
+
+.more-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.more-hero{padding:5px 0 8px}.more-hero h2{margin-bottom:5px}.more-hero p{font-size:11.5px;color:var(--ink2);line-height:1.5;margin:0}
+.setting-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.setting-toggle:last-child{border-bottom:0}.setting-toggle b{font-size:12px}.setting-toggle span{font-size:9.5px;color:var(--ink3);display:block;margin-top:3px;line-height:1.35}.switch{width:44px;height:25px;border-radius:999px;background:#D9CDD2;position:relative;flex:none;cursor:pointer}.switch:after{content:"";position:absolute;width:19px;height:19px;border-radius:50%;background:#fff;left:3px;top:3px;box-shadow:0 2px 5px rgba(0,0,0,.16);transition:.15s}.switch.on{background:var(--pine)}.switch.on:after{left:22px}
+.partner-apply{background:linear-gradient(145deg,#1E342F,#264D42);color:#fff;border-radius:18px;padding:16px}.partner-apply .tiny{color:#99C4B7}.partner-apply h3{font-family:var(--serif);font-size:20px;margin:6px 0}.partner-apply p{font-size:10.5px;line-height:1.5;color:#C8DCD6;margin:0}
+.upload-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}.upload-box{border:1px dashed #D6C0C9;background:var(--paper);border-radius:13px;padding:14px 8px;text-align:center;position:relative;overflow:hidden}.upload-box input{position:absolute;inset:0;opacity:0;cursor:pointer}.upload-box svg{width:22px;height:22px;margin:0 auto 6px;stroke:var(--ink3);fill:none;stroke-width:1.4}.upload-box b{display:block;font-size:10px}.upload-box span{font-size:8.5px;color:var(--ink3);display:block;margin-top:3px}
+.caption-box{font-family:var(--sans);font-size:12px;line-height:1.5;min-height:110px}
+
 @media(max-width:900px){
   body{padding:0;display:block;background:var(--shell)}
   .pitch{display:none}
@@ -207,15 +259,15 @@ textarea{resize:vertical;min-height:72px}input:focus,select:focus,textarea:focus
 <body>
 <div class="stage">
   <aside class="pitch">
-    <div class="kicker">Beauty OS · Product prototype v0.2</div>
-    <h1>Your beauty business, finally measurable.</h1>
-    <p>No es otra agenda. Beauty OS separa lo reservado de lo cobrado, entiende la rentabilidad de cada servicio y encuentra dinero que el negocio está dejando escapar.</p>
+    <div class="kicker">Beauty OS · Product prototype v0.3</div>
+    <h1>From first client to profitable business.</h1>
+    <p>Agenda, dinero, inventario y contenido trabajando juntos. Beauty OS organiza el negocio y convierte cada servicio completado en datos útiles para decidir qué comprar, cuánto ganaste y qué publicar.</p>
     <div class="manifesto">
       <div><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Booked ≠ collected</div>
       <div><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Multi-servicio por cita</div>
-      <div><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Recovery funnel real</div>
-      <div><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Historial financiero inmutable</div>
-      <div><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Datos guardados localmente</div>
+      <div><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Content Studio conectado</div>
+      <div><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Inventario con previsión</div>
+      <div><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Starter setup + inversión</div>
     </div>
   </aside>
 
@@ -344,7 +396,6 @@ function buildSeed(){
    const [off,time,c,ids,status]=x;
    appts.push({id:'a'+(i+1),date:iso(addD(now,off)),time,clientId:c,status,services:snapServices(ids,services),createdAt:new Date().toISOString(),completedAt:status==='completed'?new Date().toISOString():null,deposit:0,tip:status==='completed'?(i===0?15:8):0,discount:0});
  });
- // Completed transactions earlier this month / last 20 days so Money has a real current-month base.
  let n=100;
  for(let d=2;d<=20;d+=2){
    const date=addD(now,-d);
@@ -354,8 +405,10 @@ function buildSeed(){
    appts.push({id:'h'+(++n),date:iso(date),time:d%3===0?'14:00':'10:00',clientId:ci.id,status:'completed',services:snapServices(ids,services),createdAt:date.toISOString(),completedAt:date.toISOString(),deposit:0,tip:d%4===0?12:5,discount:0});
  }
  return {
-  version:2,screen:'home',selDay:iso(now),filter:'todas',clientSearch:'',
-  services,clients,appts,
+  version:3,screen:'home',selDay:iso(now),filter:'todas',clientSearch:'',
+  calYear:now.getFullYear(),calMonth:now.getMonth(),calSelected:iso(now),
+  rebookingEnabled:false,partnerStatus:'not_applied',
+  services,clients,appts,content:[],
   expenses:[
    {id:'e1',name:'Renta de suite',amount:1300,category:'Fijo',date:iso(new Date(now.getFullYear(),now.getMonth(),1))},
    {id:'e2',name:'Marketing',amount:180,category:'Marketing',date:iso(addD(now,-12))},
@@ -366,21 +419,44 @@ function buildSeed(){
    {m:'mar',rev:5980,pf:3410},{m:'abr',rev:6420,pf:3760},{m:'may',rev:6890,pf:4020},{m:'jun',rev:7130,pf:4210},{m:'jul',rev:7490,pf:4460}
   ],
   inv:[
-   {id:'i1',name:'Brow Tint — Dark Brown',pct:18,left:6,dias:5},
-   {id:'i2',name:'Lamination Solution #1',pct:34,left:11,dias:9},
-   {id:'i3',name:'Henna — Medium Brown',pct:12,left:4,dias:3},
-   {id:'i4',name:'Wax — Hard beads',pct:64,left:31,dias:22},
-   {id:'i5',name:'Aplicadores / micro',pct:78,left:52,dias:34}
+   {id:'i1',name:'Brow Tint — Dark Brown',pct:18,left:6,dias:5,serviceIds:['s2','s3','s4','s6'],orderCost:42,reorderQty:32},
+   {id:'i2',name:'Lamination Solution #1',pct:34,left:11,dias:9,serviceIds:['s3','s4'],orderCost:58,reorderQty:28},
+   {id:'i3',name:'Henna — Medium Brown',pct:12,left:4,dias:3,serviceIds:['s6'],orderCost:36,reorderQty:24},
+   {id:'i4',name:'Wax — Hard beads',pct:64,left:31,dias:22,serviceIds:['s1','s2','s4','s7','s8','s9'],orderCost:28,reorderQty:70},
+   {id:'i5',name:'Aplicadores / micro',pct:78,left:52,dias:34,serviceIds:['s1','s2','s3','s4','s5','s6','s7','s8','s9'],orderCost:22,reorderQty:100}
   ],
+  setup:{
+   items:[
+    {id:'st1',category:'Equipo',label:'Camilla o silla profesional',done:true},
+    {id:'st2',category:'Equipo',label:'Iluminación / ring light',done:true},
+    {id:'st3',category:'Productos',label:'Kit principal de productos',done:true},
+    {id:'st4',category:'Productos',label:'Desechables e higiene',done:true},
+    {id:'st5',category:'Negocio',label:'Menú de servicios y precios',done:true},
+    {id:'st6',category:'Negocio',label:'Política de cancelación / depósito',done:false},
+    {id:'st7',category:'Dinero',label:'Registrar inversión inicial',done:true},
+    {id:'st8',category:'Dinero',label:'Separar ingresos de ganancia',done:true},
+    {id:'st9',category:'Contenido',label:'Sistema para before / after',done:false},
+    {id:'st10',category:'Conocimiento',label:'Rutina mensual de revisión del negocio',done:false}
+   ]
+  },
+  investments:[
+   {id:'iv1',name:'Curso inicial',amount:600,category:'Educación'},
+   {id:'iv2',name:'Camilla',amount:230,category:'Equipo'},
+   {id:'iv3',name:'Lámpara',amount:80,category:'Equipo'},
+   {id:'iv4',name:'Productos iniciales',amount:320,category:'Productos'},
+   {id:'iv5',name:'Desechables',amount:145,category:'Productos'},
+   {id:'iv6',name:'Branding',amount:90,category:'Marketing'}
+  ],
+  priorCollected:980,priorProfit:620,
   cancelledThisMonth:3,noShowsThisMonth:2,
   partner:{active:1036,rate:.30,newThisMonth:184,trials:96,churn:3.8,lifetime:38410,pending:842}
  };
 }
-const KEY='beautyOS_v02';
+const KEY='beautyOS_v03';
 function load(){
  try{
    const v=JSON.parse(localStorage.getItem(KEY));
-   if(v&&v.version===2) return v;
+   if(v&&v.version===3) return v;
  }catch(e){}
  return buildSeed();
 }
@@ -400,6 +476,51 @@ const expectedDate=c=>{
 };
 const hasFutureBooking=id=>S.appts.some(a=>a.clientId===id&&a.status==='booked'&&a.date>=iso(now));
 const pph=s=>(s.price-s.cost)/(s.dur/60);
+
+const monthKey=(y,m)=>`${y}-${String(m+1).padStart(2,'0')}`;
+const monthAppts=(y,m)=>S.appts.filter(a=>a.date.startsWith(monthKey(y,m)));
+function dayMetrics(date){
+ const all=S.appts.filter(a=>a.date===date),active=all.filter(a=>a.status!=='cancelled'),done=all.filter(a=>a.status==='completed'),booked=all.filter(a=>a.status==='booked'),cancelled=all.filter(a=>a.status==='cancelled');
+ const clients=new Set(active.map(a=>a.clientId)).size,services=active.reduce((t,a)=>t+a.services.length,0);
+ const collected=done.reduce((t,a)=>t+aTotal(a),0),profit=done.reduce((t,a)=>t+aProfit(a),0),projected=booked.reduce((t,a)=>t+(aBase(a)-aCost(a)),0);
+ return {all,active,done,booked,cancelled,clients,services,collected,profit,projected};
+}
+function calendarDays(y,m){
+ const first=new Date(y,m,1), offset=(first.getDay()+6)%7, start=new Date(y,m,1-offset);
+ return [...Array(42)].map((_,i)=>addD(start,i));
+}
+function inventoryForecast(item,days=14){
+ const end=iso(addD(now,days));
+ const upcoming=S.appts.filter(a=>a.status==='booked'&&a.date>=iso(now)&&a.date<=end);
+ let demand=0;
+ upcoming.forEach(a=>a.services.forEach(s=>{if(item.serviceIds?.includes(s.serviceId)) demand++}));
+ return {demand,shortage:Math.max(0,demand-item.left),after:item.left-demand};
+}
+function contentBacklog(){
+ const done=S.appts.filter(a=>a.status==='completed').sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time));
+ const used=new Set((S.content||[]).map(x=>x.apptId));
+ return done.filter(a=>!used.has(a.id));
+}
+function setupProgress(){
+ const items=S.setup?.items||[],done=items.filter(x=>x.done).length;
+ return {done,total:items.length,pct:items.length?Math.round(done/items.length*100):0};
+}
+function initialInvestment(){return (S.investments||[]).reduce((t,x)=>t+(+x.amount||0),0)}
+function lifetimeCollected(){return (+S.priorCollected||0)+S.appts.filter(a=>a.status==='completed').reduce((t,a)=>t+aTotal(a),0)}
+function lifetimeProfit(){return (+S.priorProfit||0)+Math.max(0,M.monthProfit)}
+function contentCaption(a,tone='premium'){
+ const c=cli(a.clientId),names=a.services.map(x=>x.name).join(' + ');
+ const first=c?.name?.split(' ')[0]||'clienta';
+ const lead=tone==='educational'?`Resultado de ${names}: técnica, simetría y acabado pensado para respetar el rostro.`:tone==='casual'?`Un cambio sutil que hace toda la diferencia ✨ ${names} para ${first}.`:`Soft, clean, intentional. ${names} para ${first} — resultado diseñado para realzar sin perder naturalidad.`;
+ return `${lead}\n\nAgenda abierta esta semana · Miami\n\n#brows #browartist #miamibrows #beautyprofessional`;
+}
+function consumeInventoryForAppointment(a){
+ (S.inv||[]).forEach(item=>{
+   let uses=0;a.services.forEach(s=>{if(item.serviceIds?.includes(s.serviceId))uses++});
+   if(uses){item.left=Math.max(0,item.left-uses);item.pct=Math.max(0,Math.round(item.pct-uses*(100/Math.max(1,item.reorderQty||50))))}
+ });
+}
+
 
 const M={
  get today(){return S.appts.filter(a=>a.date===iso(now)&&a.status!=='cancelled')},
@@ -464,23 +585,25 @@ const ICONS={
  cal:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',
  cli:'<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.2-4 4.1-6 7.5-6s6.3 2 7.5 6"/>',
  mon:'<path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/>',
- ai:'<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z"/>'
+ ai:'<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z"/>',
+ content:'<path d="M4 7h4l1.5-2h5L16 7h4v12H4V7Z"/><circle cx="12" cy="13" r="4"/>',
+ more:'<circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/>'
 };
-const TABS=[['home','Inicio','home'],['agenda','Agenda','cal'],['clientes','Clientas','cli'],['dinero','Dinero','mon'],['ia','Beauty AI','ai']];
+const TABS=[['home','Inicio','home'],['agenda','Agenda','cal'],['calendario','Calendario','mon'],['contenido','Contenido','content'],['more','Más','more']];
 const V=document.getElementById('view');
 document.getElementById('nav').innerHTML=TABS.map(([k,l,i])=>`<button data-go="${k}" class="${S.screen===k?'on':''}"><svg viewBox="0 0 24 24">${ICONS[i]}</svg><b>${l}</b></button>`).join('');
 
 function nav(k){S.screen=k;save();document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.go===k));draw();V.scrollTop=0}
 function draw(){
- const fn={home:vHome,agenda:vAgenda,clientes:vClientes,dinero:vDinero,ia:vIA,servicios:vServicios,inventario:vInventario,contenido:vContenido,partner:vPartner,booking:vBooking,settings:vSettings}[S.screen]||vHome;
+ const fn={home:vHome,agenda:vAgenda,calendario:vCalendario,clientes:vClientes,dinero:vDinero,ia:vIA,servicios:vServicios,inventario:vInventario,contenido:vContenido,setup:vSetup,more:vMore,partner:vPartner,booking:vBooking,settings:vSettings}[S.screen]||vHome;
  V.innerHTML=fn();
 }
 function goto(k){if(TABS.some(t=>t[0]===k))nav(k);else{S.screen=k;save();draw();V.scrollTop=0}}
 
 function vHome(){
- const t=M.today,h=Math.floor(M.todayMin/60),m=M.todayMin%60,od=M.overdue(),low=S.inv.filter(i=>i.pct<25),recovery=M.recovery;
+ const t=M.today,h=Math.floor(M.todayMin/60),m=M.todayMin%60,low=S.inv.filter(i=>inventoryForecast(i).shortage>0||i.pct<25),backlog=contentBacklog(),setup=setupProgress();
  const growth=((M.monthCollected-S.hist[4].rev)/S.hist[4].rev*100);
- const due=M.dueSoon();
+ const nextRisk=low[0],invF=nextRisk?inventoryForecast(nextRisk):null;
  return `
  <div class="ledger">
    <div class="lbl">${DIA[now.getDay()]} ${now.getDate()} ${MES[now.getMonth()]} · ${t.length} citas</div>
@@ -498,39 +621,30 @@ function vHome(){
    <div class="stat"><div class="k">Reservado</div><div class="v">${money(M.monthBookedValue)}</div><div class="d flat">citas activas</div></div>
    <div class="stat"><div class="k">Cobrado</div><div class="v">${money(M.monthCollected)}</div><div class="d ${growth>=0?'up':'down'}">${growth>=0?'▲':'▼'} ${Math.abs(growth).toFixed(1)}% vs julio</div></div>
    <div class="stat"><div class="k">Beneficio</div><div class="v">${money(M.monthProfit)}</div><div class="d flat">después de gastos</div></div>
-   <div class="stat"><div class="k">Ocupación</div><div class="v">${M.occ}%</div><div class="d ${M.gaps().length?'amber':'up'}">${M.gaps().length} huecos útiles</div></div>
+   <div class="stat"><div class="k">Contenido</div><div class="v">${backlog.length}</div><div class="d ${backlog.length?'amber':'up'}">resultados por convertir</div></div>
  </div>
 
- <div class="eyebrow">Necesitan tu atención</div>
- ${od.length?`<div class="alert" data-go="clientes" data-filter="vencidas"><div class="dot d-red"></div><div><div class="t">${od.length} clientas están fuera de su ciclo</div><div class="s">${money(od.reduce((t,c)=>t+(svc(c.preferredService)?.price||0),0))} de ingreso potencial. Recuperarlas no se contará como dinero hasta que el servicio se complete.</div></div><div class="go">${SVG.chevron}</div></div>`:''}
- ${due.length?`<div class="alert" data-go="clientes" data-filter="pronto"><div class="dot d-blue"></div><div><div class="t">${due.length} clientas entran en ventana de regreso</div><div class="s">Contactarlas antes de que estén vencidas protege retención sin ofrecer descuentos.</div></div><div class="go">${SVG.chevron}</div></div>`:''}
- ${low.length?`<div class="alert" data-go="inventario"><div class="dot d-amb"></div><div><div class="t">${low.length} productos están críticos</div><div class="s">${esc(low[0].name)} alcanza para ~${low[0].left} servicios.</div></div><div class="go">${SVG.chevron}</div></div>`:''}
- <div class="alert" data-go="dinero"><div class="dot d-grn"></div><div><div class="t">${money(M.monthCollected)} realmente cobrados</div><div class="s">Beauty OS ya no mezcla dinero reservado con dinero realizado.</div></div><div class="go">${SVG.chevron}</div></div>
+ <div class="eyebrow">Ahora mismo</div>
+ ${backlog.length?`<div class="alert" data-go="contenido"><div class="dot d-blue"></div><div><div class="t">${backlog.length} trabajos ya pueden convertirse en contenido</div><div class="s">No necesitas inventar qué publicar: Beauty OS parte de servicios que ya completaste.</div></div><div class="go">${SVG.chevron}</div></div>`:''}
+ ${nextRisk?`<div class="alert" data-go="inventario"><div class="dot d-amb"></div><div><div class="t">${esc(nextRisk.name)} necesita atención</div><div class="s">Quedan ~${nextRisk.left} usos y tienes ${invF.demand} servicios relacionados en los próximos 14 días${invF.shortage?` · te faltaría para ${invF.shortage}`:''}.</div></div><div class="go">${SVG.chevron}</div></div>`:''}
+ <div class="alert" data-go="calendario"><div class="dot d-grn"></div><div><div class="t">Mira el negocio día por día</div><div class="s">El calendario financiero muestra clientas, servicios y beneficio operativo de cada fecha.</div></div><div class="go">${SVG.chevron}</div></div>
+ <div class="alert" data-go="setup"><div class="dot d-blue"></div><div><div class="t">Tu setup está ${setup.pct}% completo</div><div class="s">${setup.total-setup.done} pendientes entre productos, negocio, dinero y contenido.</div></div><div class="go">${SVG.chevron}</div></div>
 
  <div class="eyebrow">Beauty AI</div>
  <div class="ai">
-   <div class="head">${SVG.spark} Lectura de hoy</div>
-   <p>Tu <b>${esc(M.best?.name||'mejor servicio')}</b> genera cerca de <b>${money2(M.best?pph(M.best):0)}/hora</b>. Tienes <b>${M.gaps().length} huecos</b> y <b>${od.length} clientas vencidas</b>. El camino más rápido no es trabajar más: es recuperar demanda ya existente.</p>
-   <div class="acts"><button class="btn b sm" data-go="ia">${SVG.spark} Ver dinero sobre la mesa</button><button class="btn ghost sm" data-act="fill-gaps">${SVG.clock} Ofrecer huecos</button></div>
- </div>
-
- <div class="eyebrow">Recovery funnel</div>
- <div class="funnel">
-   <div class="fstep"><b>${recovery.contacted}</b><span>Contactadas</span></div>
-   <div class="fstep"><b>${recovery.booked}</b><span>Reservaron</span></div>
-   <div class="fstep"><b>${recovery.completed}</b><span>Completadas</span></div>
-   <div class="fstep"><b>${money(recovery.recovered)}</b><span>Recuperado</span></div>
+   <div class="head">${SVG.spark} Prioridad de hoy</div>
+   <p>${backlog.length?`Tienes <b>${backlog.length} resultados</b> sin convertir en contenido.`:'Tu contenido está al día.'} ${nextRisk?`Además, <b>${esc(nextRisk.name)}</b> puede quedarse corto frente a tus próximas reservas.`:''} Tu mejor servicio por hora sigue siendo <b>${esc(M.best?.name||'—')}</b> a ${money2(M.best?pph(M.best):0)}/h.</p>
+   <div class="acts"><button class="btn b sm" data-go="contenido">${SVG.camera} Crear contenido</button><button class="btn ghost sm" data-go="inventario">${SVG.box} Revisar productos</button></div>
  </div>
 
  <div class="eyebrow">Tu negocio</div>
  <div class="tiles">
-   ${tile('servicios','briefcase','Servicios y precios',`${S.services.filter(s=>s.active!==false).length} activos`,'')}
-   ${tile('inventario','box','Inventario',`${low.length} por reponer`,'amber')}
-   ${tile('contenido','camera','Antes / después','Contenido listo','blue')}
-   ${tile('partner','people','Partner','Comisiones recurrentes','green')}
-   ${tile('booking','link','Página de reservas','Preview público','')}
+   ${tile('calendario','cal','Calendario financiero','Ganancia por día','green')}
+   ${tile('contenido','camera','Content Studio',`${backlog.length} piezas posibles`,'blue')}
+   ${tile('inventario','box','Inventario',`${low.length} alertas`,'amber')}
+   ${tile('dinero','briefcase','Dinero','Inversión vs ganancia','')}
+   ${tile('setup','settings','Mi Setup',`${setup.pct}% listo`,'blue')}
    ${tileAct('add','cal','Nueva cita','Multi-servicio en segundos','green')}
-   ${tile('settings','settings','Datos y ajustes','Persistencia + export','blue')}
  </div><div style="height:14px"></div>`;
 }
 function tile(go,icon,title,sub,cl){return `<div class="tile" data-go="${go}"><div class="tile-icon ${cl||''}">${SVG[icon]}</div><b>${title}</b><span>${sub}</span></div>`}
@@ -567,22 +681,87 @@ function segData(){
  const active=S.clients.filter(c=>c.active!==false);
  return {todas:active,vencidas:M.overdue(),pronto:M.dueSoon(),vip:active.filter(c=>c.vip),riesgo:M.atRisk(),nuevas:active.filter(c=>c.isNew)};
 }
+
+function vCalendario(){
+ const y=S.calYear??now.getFullYear(),m=S.calMonth??now.getMonth(),days=calendarDays(y,m),prefix=monthKey(y,m),monthLabel=new Date(y,m,1).toLocaleDateString('es-ES',{month:'long',year:'numeric'});
+ const month=monthAppts(y,m),done=month.filter(a=>a.status==='completed'),active=month.filter(a=>a.status!=='cancelled');
+ const collected=done.reduce((t,a)=>t+aTotal(a),0),profit=done.reduce((t,a)=>t+aProfit(a),0),clients=new Set(done.map(a=>a.clientId)).size,canc=month.filter(a=>a.status==='cancelled').length;
+ const selected=S.calSelected&&S.calSelected.startsWith(prefix)?S.calSelected:iso(new Date(y,m,1));
+ const dm=dayMetrics(selected),selDate=new Date(selected+'T12:00:00');
+ const detail=dm.all.sort((a,b)=>a.time.localeCompare(b.time));
+ return `<h2 class="sec">Calendario financiero</h2><div class="page-intro">La lógica visual de MyBankRoll, adaptada a beauty: cada día resume clientas, servicios y beneficio operativo.</div>
+ <div class="grid4" style="margin-bottom:10px">
+   <div class="stat"><div class="k">Cobrado</div><div class="v">${money(collected)}</div><div class="d flat">${MES[m]} ${y}</div></div>
+   <div class="stat"><div class="k">Beneficio</div><div class="v">${money(profit)}</div><div class="d up">operativo realizado</div></div>
+   <div class="stat"><div class="k">Clientas</div><div class="v">${clients}</div><div class="d flat">atendidas</div></div>
+   <div class="stat"><div class="k">Cancel.</div><div class="v">${canc}</div><div class="d ${canc?'down':'up'}">del mes</div></div>
+ </div>
+ <div class="month-cal">
+  <div class="month-cal-head">
+   <button class="calnav" data-act="cal-prev" aria-label="Mes anterior">${SVG.back}</button>
+   <div class="title"><b>${monthLabel}</b><span>actividad por día</span></div>
+   <button class="today-mini" data-act="cal-today">Hoy</button>
+   <button class="calnav" data-act="cal-next" aria-label="Mes siguiente">${SVG.chevron}</button>
+  </div>
+  <div class="cal-weekdays">${['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'].map(x=>`<span>${x}</span>`).join('')}</div>
+  <div class="cal-grid">${days.map(d=>{
+    const k=iso(d),x=dayMetrics(k),inMonth=d.getMonth()===m;
+    const future=d>now,hasDone=x.done.length>0,hasBooked=x.booked.length>0,hasIssue=x.cancelled.length>0&&!hasDone&&!hasBooked;
+    const cls=hasDone?'good':hasBooked?'future':hasIssue?'issue':'';
+    const main=hasDone?`+${money(x.profit).replace('$','')}`:hasBooked?`${money(x.projected)}*`:hasIssue?'cancel.':'';
+    return `<div class="cal-cell ${inMonth?'':'out'} ${cls} ${k===selected?'selected':''} ${k===iso(now)?'today':''}" data-cal-day="${k}">
+      <div class="cd">${d.getDate()}</div><div class="cm">${main}</div><div class="cc">${x.clients?`${x.clients} cli · ${x.services} serv`:''}</div>
+      <div class="cal-dots">${x.done.slice(0,2).map(()=>'<i class="done"></i>').join('')}${x.booked.slice(0,2).map(()=>'<i class="booked"></i>').join('')}${x.cancelled.slice(0,1).map(()=>'<i class="cancelled"></i>').join('')}</div>
+    </div>`}).join('')}</div>
+  <div class="month-legend"><span><i style="background:var(--pine)"></i>beneficio realizado</span><span><i style="background:var(--berry)"></i>reservado futuro</span><span><i style="background:var(--red)"></i>cancelación</span><span>* proyectado</span></div>
+ </div>
+
+ <div class="eyebrow">${DIA[selDate.getDay()]} ${fdate(selDate)}</div>
+ <div class="day-finance">
+   <div class="fstep"><b>${dm.clients}</b><span>Clientas</span></div>
+   <div class="fstep"><b>${dm.services}</b><span>Servicios</span></div>
+   <div class="fstep"><b>${money(dm.collected)}</b><span>Cobrado</span></div>
+   <div class="fstep"><b>${money(dm.profit)}</b><span>Beneficio</span></div>
+ </div>
+ ${detail.length?detail.map(a=>{
+   const c=cli(a.clientId),isDone=a.status==='completed',amount=isDone?aTotal(a):aBase(a),p=isDone?aProfit(a):(aBase(a)-aCost(a));
+   return `<div class="day-card" data-appt="${a.id}"><div class="top"><div><div class="name">${esc(c?.name||'Clienta')}</div><div class="meta">${a.time} · ${a.services.map(s=>esc(s.name)).join(' + ')}</div></div><div class="amount">${money(amount)}</div></div><div class="profit">${isDone?`+${money(p)} beneficio realizado`:`${money(p)} beneficio proyectado`} · ${a.status==='completed'?'completada':a.status==='booked'?'reservada':'cancelada'}</div></div>`
+ }).join(''):`<div class="empty">${SVG.cal}<b>Sin actividad</b>Este día no tiene citas registradas.</div>`}
+ <div style="height:20px"></div>`;
+}
+
 function vClientes(){
  const seg=segData(),q=(S.clientSearch||'').toLowerCase().trim();
+ if(!S.rebookingEnabled && ['vencidas','pronto','riesgo'].includes(S.filter)) S.filter='todas';
  let list=seg[S.filter]||seg.todas;
  if(q)list=list.filter(c=>c.name.toLowerCase().includes(q)||c.phone.includes(q)||c.email.toLowerCase().includes(q));
- const chips=[['todas','Todas',seg.todas.length],['vencidas','Vencidas',seg.vencidas.length],['pronto','Pronto',seg.pronto.length],['vip','VIP',seg.vip.length],['riesgo','Riesgo',seg.riesgo.length],['nuevas','Nuevas',seg.nuevas.length]];
+ const chips=S.rebookingEnabled
+  ? [['todas','Todas',seg.todas.length],['vencidas','Vencidas',seg.vencidas.length],['pronto','Pronto',seg.pronto.length],['vip','VIP',seg.vip.length],['riesgo','Riesgo',seg.riesgo.length],['nuevas','Nuevas',seg.nuevas.length]]
+  : [['todas','Todas',seg.todas.length],['vip','VIP',seg.vip.length],['nuevas','Nuevas',seg.nuevas.length]];
  return `<div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><h2 class="sec" style="margin:0">Clientas</h2><button class="btn b sm" data-act="new-client">${SVG.plus} Nueva</button></div>
  <div class="search" style="margin-top:13px">${SVG.search}<input id="clientSearch" placeholder="Buscar nombre, teléfono o email" value="${esc(S.clientSearch||'')}"></div>
  <div class="chips">${chips.map(([k,l,n])=>`<div class="chip ${S.filter===k?'on':''}" data-filter="${k}">${l} ${n}</div>`).join('')}</div>
- ${S.filter==='vencidas'&&list.length?`<div class="card" style="background:var(--red-s);border-color:#F0CFC9;margin-bottom:12px"><div class="mono tiny" style="color:var(--red);text-transform:uppercase;letter-spacing:.11em">Ingresos potenciales</div><div class="num" style="font-size:30px;margin-top:5px">${money(list.reduce((t,c)=>t+(svc(c.preferredService)?.price||0),0))}</div><div class="card-sub">Todavía no es ingreso. Es una oportunidad hasta que reserven y completen.</div><button class="btn b sm" style="margin-top:12px" data-act="recover-all">${SVG.send} Preparar mensajes</button></div>`:''}
+ ${!S.rebookingEnabled?`<div class="inline-note">Recordatorios de rebooking están desactivados. Esto mantiene el CRM enfocado en historial, visitas y gasto. Puedes activarlos en Ajustes si tu tipo de negocio los necesita.</div>`:''}
+ ${S.rebookingEnabled&&S.filter==='vencidas'&&list.length?`<div class="card" style="background:var(--red-s);border-color:#F0CFC9;margin-bottom:12px"><div class="mono tiny" style="color:var(--red);text-transform:uppercase;letter-spacing:.11em">Opcional · rebooking</div><div class="num" style="font-size:30px;margin-top:5px">${money(list.reduce((t,c)=>t+(svc(c.preferredService)?.price||0),0))}</div><div class="card-sub">Oportunidad estimada; no se cuenta como ingreso hasta completar el servicio.</div><button class="btn b sm" style="margin-top:12px" data-act="recover-all">${SVG.send} Preparar mensajes</button></div>`:''}
  ${list.length?list.map(clientRow).join(''):`<div class="empty">${SVG.user}<b>Nadie por aquí</b>Cambia el filtro o agrega una clienta.</div>`}
  <div style="height:20px"></div>`;
 }
 function clientRow(c){
  const s=svc(c.preferredService),due=Math.round((expectedDate(c)-now)/DAY),stage=c.recovery?.stage||'none';
  let tag;
- if(stage==='completed')tag=['t-grn','Recuperada']; else if(stage==='booked')tag=['t-blue','Reservó']; else if(stage==='contacted')tag=['t-amb','Contactada']; else if(due<-28)tag=['t-red','En riesgo']; else if(due<0)tag=['t-red',`${-due}d tarde`]; else if(c.isNew)tag=['t-new','Nueva']; else if(due<=10)tag=['t-amb',`Vuelve ${fdate(expectedDate(c))}`]; else if(c.vip)tag=['t-vip','VIP']; else tag=['t-grn','Al día'];
+ if(S.rebookingEnabled){
+  if(stage==='completed')tag=['t-grn','Recuperada'];
+  else if(stage==='booked')tag=['t-blue','Reservó'];
+  else if(stage==='contacted')tag=['t-amb','Contactada'];
+  else if(due<-28)tag=['t-red','En riesgo'];
+  else if(due<0)tag=['t-red',`${-due}d tarde`];
+  else if(c.isNew)tag=['t-new','Nueva'];
+  else if(due<=10)tag=['t-amb',`Vuelve ${fdate(expectedDate(c))}`];
+  else if(c.vip)tag=['t-vip','VIP'];
+  else tag=['t-grn','Al día'];
+ }else{
+  tag=c.isNew?['t-new','Nueva']:c.vip?['t-vip','VIP']:['t-grn','Activa'];
+ }
  return `<div class="row" data-cli="${c.id}"><div class="ini">${c.name.split(' ').map(x=>x[0]).join('').slice(0,2)}</div><div class="row-main"><div class="n">${esc(c.name)}</div><div class="m">${esc(s?.name||'Sin servicio')} · ${c.visits} visitas · ${money(c.lifetime)} lifetime</div></div><div class="r"><span class="tag ${tag[0]}">${tag[1]}</span></div></div>`;
 }
 
@@ -590,7 +769,8 @@ function vDinero(){
  const rev=M.monthCollected,book=M.monthBookedValue,pf=M.monthProfit,sup=M.monthServiceCost,fees=M.monthFees,exp=M.monthExpenses;
  const h=[...S.hist,{m:MES[now.getMonth()],rev,pf:Math.max(0,pf)}],max=Math.max(1,...h.map(x=>x.rev));
  const tabla=[...S.services].filter(s=>s.active!==false).sort((a,b)=>pph(b)-pph(a));
- return `<h2 class="sec">Dinero</h2><div class="page-intro">Lo reservado mide demanda. Lo cobrado mide realidad. El beneficio solo aparece cuando el servicio se completa.</div>
+ const inv=initialInvestment(),lp=lifetimeProfit(),recPct=inv?Math.min(100,Math.round(lp/inv*100)):100,remaining=Math.max(0,inv-lp);
+ return `<h2 class="sec">Dinero</h2><div class="page-intro">La pregunta no es solo “¿cuánto hice?”. Beauty OS separa lo reservado, lo cobrado, lo invertido y lo que realmente quedó.</div>
  <div class="card" style="padding:18px">
   <div class="mono tiny">${MES[now.getMonth()]} ${now.getFullYear()} · transaccional</div>
   <div class="num" style="font-size:45px;margin:6px 0 2px">${money(pf)}</div><div class="card-sub">beneficio realizado sobre ${money(rev)} cobrados</div>
@@ -599,32 +779,45 @@ function vDinero(){
   <div class="lrow" style="color:var(--ink2)"><span>Ingresos cobrados</span><b style="color:var(--ink)">${money(rev)}</b></div>
   <div class="lrow" style="color:var(--ink2)"><span>Materiales realizados</span><b style="color:var(--ink)">−${money(sup)}</b></div>
   <div class="lrow" style="color:var(--ink2)"><span>Payment fees</span><b style="color:var(--ink)">−${money(fees)}</b></div>
-  <div class="lrow" style="color:var(--ink2)"><span>Gastos del mes</span><b style="color:var(--ink)">−${money(exp)}</b></div>
+  <div class="lrow" style="color:var(--ink2)"><span>Otros gastos</span><b style="color:var(--ink)">−${money(exp)}</b></div>
   <div class="lrow" style="border-top:1px solid var(--line);margin-top:8px;padding-top:10px"><span class="mono">MARGEN REALIZADO</span><b style="color:var(--pine);font-family:var(--serif);font-size:18px">${rev?Math.round(pf/rev*100):0}%</b></div>
  </div>
+
+ <div class="eyebrow">Inversión vs ganancia</div>
+ <div class="card">
+   <div class="mono tiny">INVERSIÓN INICIAL REGISTRADA</div><div class="investment-big" style="margin-top:5px">${money(inv)}</div>
+   <div class="card-sub">Beneficio acumulado registrado: ${money(lp)} · faltan ${money(remaining)} para cubrir completamente la inversión.</div>
+   <div class="setup-track"><i style="width:${recPct}%"></i></div><div class="tiny" style="margin-top:6px">${recPct}% recuperado con beneficio, no con ingreso bruto.</div>
+   <button class="btn ghost full sm" style="margin-top:11px" data-go="setup">${SVG.briefcase} Ver inversión inicial</button>
+ </div>
+
  <div class="eyebrow">6 meses</div><div class="card"><div class="bars">${h.map(x=>`<div class="bcol"><div class="bfill" style="height:${Math.max(3,x.rev/max*100)}%"><div class="in" style="height:${x.rev?Math.max(0,x.pf/x.rev*100):0}%"></div></div><div class="blab">${x.m}</div></div>`).join('')}</div><div class="legend"><span><i style="background:linear-gradient(180deg,var(--berry),#D9738F)"></i>Cobrado</span><span><i style="background:var(--ink)"></i>Beneficio</span></div></div>
- <div class="grid2" style="margin-top:10px"><div class="stat"><div class="k">Ticket cobrado</div><div class="v">${money(M.ticket)}</div><div class="d flat">${M.monthCompleted.length} servicios completados</div></div><div class="stat"><div class="k">Pendiente</div><div class="v">${money(Math.max(0,book-rev))}</div><div class="d amber">reservado ≠ cobrado</div></div><div class="stat"><div class="k">Recuperado</div><div class="v">${money(M.recovery.recovered)}</div><div class="d up">${M.recovery.completed} completadas</div></div><div class="stat"><div class="k">Gastos</div><div class="v">${money(exp)}</div><div class="d flat">registros del mes</div></div></div>
- <div class="eyebrow">Rentabilidad actual</div><div class="card"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Servicio</th><th>Precio</th><th>Coste</th><th>Tiempo</th><th>$/hora</th></tr></thead><tbody>${tabla.map((s,i)=>`<tr data-svc="${s.id}" class="${i===0?'best':''}"><td>${esc(s.name)}</td><td>${money(s.price)}</td><td>${money2(s.cost)}</td><td>${s.dur}m</td><td><b>${money2(pph(s))}</b></td></tr>`).join('')}</tbody></table></div><div class="tiny" style="margin-top:12px;line-height:1.5">Editar un precio cambia proyecciones futuras, pero nunca reescribe citas ya reservadas: cada cita guarda su snapshot.</div></div>
+ <div class="grid2" style="margin-top:10px"><div class="stat"><div class="k">Ticket cobrado</div><div class="v">${money(M.ticket)}</div><div class="d flat">${M.monthCompleted.length} servicios completados</div></div><div class="stat"><div class="k">Pendiente</div><div class="v">${money(Math.max(0,book-rev))}</div><div class="d amber">reservado ≠ cobrado</div></div><div class="stat"><div class="k">Materiales</div><div class="v">${money(sup)}</div><div class="d flat">consumo realizado</div></div><div class="stat"><div class="k">Gastos</div><div class="v">${money(exp)}</div><div class="d flat">registros del mes</div></div></div>
+ <div class="eyebrow">Rentabilidad actual</div><div class="card"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Servicio</th><th>Precio</th><th>Coste</th><th>Tiempo</th><th>$/hora</th></tr></thead><tbody>${tabla.map((s,i)=>`<tr data-svc="${s.id}" class="${i===0?'best':''}"><td>${esc(s.name)}</td><td>${money(s.price)}</td><td>${money2(s.cost)}</td><td>${s.dur}m</td><td><b>${money2(pph(s))}</b></td></tr>`).join('')}</tbody></table></div><div class="tiny" style="margin-top:12px;line-height:1.5">Cambiar un precio hoy solo afecta reservas futuras. Las citas anteriores conservan su snapshot histórico.</div></div>
  <div class="eyebrow">Gastos</div><div class="card">${S.expenses.filter(e=>{const d=new Date(e.date+'T12:00:00');return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear()}).map(e=>`<div class="lrow" style="color:var(--ink2);padding:7px 0;border-bottom:1px solid var(--line)"><span>${esc(e.name)} <span class="tiny">· ${esc(e.category)}</span></span><b style="color:var(--ink)">${money2(e.amount)}</b></div>`).join('')||'<div class="empty"><b>Sin gastos</b></div>'}<button class="btn ghost full sm" style="margin-top:10px" data-act="new-expense">${SVG.plus} Registrar gasto</button></div>
  <div style="height:20px"></div>`;
 }
 
 function vIA(){
- const L=M.lost,od=M.overdue(),r=M.recovery;
- return `<h2 class="sec">Beauty AI</h2><div class="page-intro">No es un chatbot. Es una capa de decisión encima de tus datos.</div>
- <div class="ticket"><div class="th">Beauty OS · dinero sobre la mesa</div><div class="amt">${money(L.total)}</div><div class="cap">oportunidad estimada · no ingreso garantizado</div>
-  <div class="trow"><div class="amtx">${money(L.od)}</div><div class="tx">${od.length} clientas vencidas<small>Fuera de su ventana de regreso y sin reserva futura</small></div><button class="btn b sm" data-act="recover-all">Contactar</button></div>
-  <div class="trow"><div class="amtx">${money(L.gaps)}</div><div class="tx">${M.gaps().length} huecos útiles<small>Capacidad vendible entre citas esta semana</small></div><button class="btn ghost sm" data-act="fill-gaps">Ofrecer</button></div>
-  <div class="trow"><div class="amtx">${money(L.under)}</div><div class="tx">Pricing / mix de servicios<small>${esc(M.worst?.name||'Servicio')} rinde ${money2(M.worst?pph(M.worst):0)}/h</small></div><button class="btn ghost sm" data-act="price">Revisar</button></div>
-  <div class="trow"><div class="amtx">${money(L.canc)}</div><div class="tx">${S.cancelledThisMonth} cancelaciones · ${S.noShowsThisMonth} no-shows<small>Los depósitos reducen exposición, no garantizan asistencia</small></div><button class="btn ghost sm" data-act="deposit">Depósito</button></div>
-  <div class="foot">Ingreso realmente recuperado · ${money(r.recovered)}</div>
+ const L=M.lost,backlog=contentBacklog(),critical=S.inv.filter(i=>inventoryForecast(i).shortage>0||i.pct<25),gapValue=L.gaps,pricing=L.under,cancel=L.canc;
+ const financeOpp=gapValue+pricing+cancel;
+ return `<h2 class="sec">Beauty AI</h2><div class="page-intro">No intenta hacer todo. Prioriza lo que hoy te cuesta tiempo, dinero o tranquilidad.</div>
+ <div class="ticket"><div class="th">Beauty OS · oportunidad financiera</div><div class="amt">${money(financeOpp)}</div><div class="cap">estimación · no ingreso garantizado</div>
+  <div class="trow"><div class="amtx">${money(gapValue)}</div><div class="tx">${M.gaps().length} huecos útiles<small>Capacidad vendible entre citas de esta semana</small></div><button class="btn b sm" data-act="fill-gaps">Ver</button></div>
+  <div class="trow"><div class="amtx">${money(pricing)}</div><div class="tx">Pricing / mix de servicios<small>${esc(M.worst?.name||'Servicio')} rinde ${money2(M.worst?pph(M.worst):0)}/h</small></div><button class="btn ghost sm" data-act="price">Revisar</button></div>
+  <div class="trow"><div class="amtx">${money(cancel)}</div><div class="tx">${S.cancelledThisMonth} cancelaciones · ${S.noShowsThisMonth} no-shows<small>Los depósitos reducen exposición</small></div><button class="btn ghost sm" data-act="deposit">Depósito</button></div>
+  <div class="foot">Separa oportunidad de dinero realmente cobrado</div>
  </div>
- <div class="eyebrow">Funnel de recuperación</div><div class="funnel"><div class="fstep"><b>${r.contacted}</b><span>Contactadas</span></div><div class="fstep"><b>${r.booked}</b><span>Reservaron</span></div><div class="fstep"><b>${r.completed}</b><span>Completadas</span></div><div class="fstep"><b>${money(r.recovered)}</b><span>Cobrado</span></div></div>
- <div class="eyebrow">Plan de esta semana</div>
- <div class="alert" data-go="clientes" data-filter="pronto"><div class="dot d-blue"></div><div><div class="t">Contactar ${M.dueSoon().length} antes de que venzan</div><div class="s">La mejor recuperación es evitar que una clienta se vuelva inactiva.</div></div><div class="go">${SVG.chevron}</div></div>
- <div class="alert" data-go="agenda"><div class="dot d-red"></div><div><div class="t">Atacar primero los huecos de 60+ minutos</div><div class="s">Son capacidad disponible que puede convertirse en revenue sin extender horario.</div></div><div class="go">${SVG.chevron}</div></div>
- <div class="alert" data-go="servicios"><div class="dot d-amb"></div><div><div class="t">Revisar ${esc(M.worst?.name||'servicio menos rentable')}</div><div class="s">No necesariamente hay que subir precio: también puedes reducir tiempo o coste de material.</div></div><div class="go">${SVG.chevron}</div></div>
- <div class="ai" style="margin-top:14px"><div class="head">${SVG.spark} Proyección</div><p>A tu ticket cobrado actual de <b>${money(M.ticket)}</b>, cada <b>$1,000 adicionales</b> requiere aproximadamente <b>${M.ticket?Math.ceil(1000/M.ticket):0} citas</b>. Antes de perseguir más volumen, protege retención y ocupación.</p><div class="acts"><button class="btn b sm" data-act="goal">Simular objetivo</button></div></div>
+
+ <div class="eyebrow">Trabajo que Beauty OS puede quitarte</div>
+ <div class="alert" data-go="contenido"><div class="dot d-blue"></div><div><div class="t">${backlog.length} servicios completados sin contenido</div><div class="s">Convierte before/after en Reel, Story o Post con caption y CTA ya preparados.</div></div><div class="go">${SVG.chevron}</div></div>
+ <div class="alert" data-go="inventario"><div class="dot d-amb"></div><div><div class="t">${critical.length} alertas de productos</div><div class="s">La previsión compara lo que queda con las citas ya reservadas de los próximos 14 días.</div></div><div class="go">${SVG.chevron}</div></div>
+ <div class="alert" data-go="calendario"><div class="dot d-grn"></div><div><div class="t">Calendario financiero</div><div class="s">Detecta visualmente tus días fuertes, días vacíos y beneficio operativo por fecha.</div></div><div class="go">${SVG.chevron}</div></div>
+
+ <div class="eyebrow">Rebooking</div>
+ <div class="card"><div class="setting-toggle"><div><b>Recordatorios de regreso</b><span>${S.rebookingEnabled?'Activados para este negocio.':'Desactivados porque no todos los beauty businesses necesitan perseguir clientas.'}</span></div><div class="switch ${S.rebookingEnabled?'on':''}" data-act="toggle-rebooking"></div></div></div>
+
+ <div class="ai" style="margin-top:14px"><div class="head">${SVG.spark} Prioridad sugerida</div><p>${backlog.length?`Primero elimina el backlog de <b>${backlog.length} piezas de contenido</b>.`:''} ${critical.length?`Después resuelve <b>${critical.length} alertas de inventario</b> antes de que afecten citas ya vendidas.`:''} Solo después tiene sentido optimizar más cosas.</p><div class="acts"><button class="btn b sm" data-go="contenido">Abrir Content Studio</button><button class="btn ghost sm" data-go="inventario">Ver inventario</button></div></div>
  <div style="height:20px"></div>`;
 }
 
@@ -636,16 +829,72 @@ function vServicios(){
 }
 
 function vInventario(){
- return `<button class="back" data-go="home">${SVG.back} Inicio</button><h2 class="sec">Inventario</h2><div class="page-intro">V2 conceptual: expresado en servicios restantes para que sea útil sin obligar a contar mililitros cada día.</div><div class="card">${S.inv.map(i=>`<div class="inv"><div class="h"><span style="font-weight:600;color:var(--ink)">${esc(i.name)}</span><span>~${i.left} servicios</span></div><div class="track"><i class="${i.pct<20?'crit':i.pct<40?'low':''}" style="width:${i.pct}%"></i></div><div class="f">${i.pct}% restante · repón antes del ${fdate(addD(now,i.dias))}</div></div>`).join('')}</div><div class="ai" style="margin-top:12px"><div class="head">${SVG.spark} Compras</div><p>El inventario sería una capa posterior al MVP. Primero validamos que <b>dinero + clientas + recovery + agenda</b> retienen al profesional.</p></div><div style="height:20px"></div>`;
+ const rows=S.inv.map(i=>({i,f:inventoryForecast(i)}));
+ const critical=rows.filter(x=>x.f.shortage>0||x.i.pct<25);
+ const orderCost=critical.reduce((t,x)=>t+(+x.i.orderCost||0),0);
+ return `<button class="back" data-go="more">${SVG.back} Más</button><h2 class="sec">Inventario inteligente</h2><div class="page-intro">No necesitas recordar mentalmente cuándo comprar. Beauty OS compara existencias estimadas con lo que ya tienes reservado.</div>
+ ${critical.length?`<div class="card" style="background:var(--amber-s);border-color:#EED9AD"><div class="mono tiny" style="color:var(--amber)">COMPRA SUGERIDA</div><div class="num" style="font-size:31px;margin-top:5px">${money(orderCost)}</div><div class="card-sub">${critical.length} productos requieren atención. El cálculo usa servicios restantes + demanda de los próximos 14 días.</div></div>`:`<div class="inline-note green">Inventario suficiente para las reservas conocidas de las próximas dos semanas.</div>`}
+ <div class="eyebrow">Productos</div>
+ <div class="card">${rows.map(({i,f})=>`<div class="inv"><div class="h"><span style="font-weight:650;color:var(--ink)">${esc(i.name)}</span><span>~${i.left} usos</span></div><div class="track"><i class="${f.shortage>0||i.pct<20?'crit':i.pct<40?'low':''}" style="width:${Math.max(2,i.pct)}%"></i></div><div class="f">${i.pct}% estimado · ${f.demand} usos previstos / 14 días ${f.shortage?`· <b style="color:var(--red)">faltan ${f.shortage}</b>`:`· quedarían ${Math.max(0,f.after)}`}</div><div class="sheet-actions"><button class="btn ghost sm" data-act="inv-restock" data-id="${i.id}">${SVG.check} Marcar comprado</button><button class="btn ghost sm" data-act="inv-use" data-id="${i.id}">−1 uso</button></div></div>`).join('')}</div>
+ <div class="ai" style="margin-top:12px"><div class="head">${SVG.spark} Próximas citas</div><p>${critical.length?`Si no repones, <b>${critical.reduce((t,x)=>t+x.f.shortage,0)} usos</b> reservados podrían quedarse sin producto suficiente.`:'No hay riesgo conocido según la agenda actual.'} Cuando completas una cita, Beauty OS descuenta automáticamente los usos vinculados.</p></div><div style="height:20px"></div>`;
 }
 
 function vContenido(){
- return `<button class="back" data-go="home">${SVG.back} Inicio</button><h2 class="sec">Antes / después</h2><div class="page-intro">Una biblioteca visual ligada a clienta y servicio; marketing como consecuencia del trabajo ya realizado.</div><div class="card"><div class="ba"><div class="shot b"><span>Antes</span>${SVG.camera}</div><div class="shot a"><span>Después</span>${SVG.spark}</div></div><div style="margin-top:12px"><div class="card-title">Mariana Salas</div><div class="tiny" style="margin-top:4px">Full Brow · ${fdate(addD(now,-12))} · snapshot del servicio</div></div><div class="sheet-actions"><button class="btn b sm" data-act="caption">${SVG.spark} Generar caption</button><button class="btn ghost sm" data-act="reel">${SVG.camera} Crear reel</button></div></div><div class="eyebrow">Sin publicar · 12</div><div class="ba">${[1,2,3,4].map(()=>`<div class="shot b">${SVG.camera}</div>`).join('')}</div><div style="height:20px"></div>`;
+ const backlog=contentBacklog(),ready=(S.content||[]).filter(x=>x.status==='ready'),published=(S.content||[]).filter(x=>x.status==='published');
+ return `<h2 class="sec">Content Studio</h2><div class="page-intro">El trabajo ya ocurrió. Beauty OS convierte servicios completados en contenido sin empezar desde una pantalla en blanco.</div>
+ <div class="content-hero"><div class="mono tiny">TU MAYOR FRICCIÓN HOY</div><div class="bigline">${backlog.length} resultados esperando convertirse en contenido.</div><p>Selecciona una cita completada, sube before/after y genera Reel, Story o Post con caption y CTA listos.</p><div class="content-kpis"><div class="content-kpi"><b>${backlog.length}</b><span>Por crear</span></div><div class="content-kpi"><b>${ready.length}</b><span>Listos</span></div><div class="content-kpi"><b>${published.length}</b><span>Publicados</span></div></div></div>
+
+ <div class="eyebrow">Crear desde tu trabajo real</div>
+ ${backlog.length?backlog.slice(0,8).map(a=>{const c=cli(a.clientId);return `<div class="content-row"><div class="content-thumb">${SVG.camera}</div><div class="body"><b>${esc(c?.name||'Clienta')} · ${a.services.map(s=>esc(s.name)).join(' + ')}</b><span>${a.date} · ${money(aTotal(a))} cobrado</span><small>before/after · caption · reel · story</small></div><button class="btn b sm" data-act="create-content" data-id="${a.id}">Crear</button></div>`}).join(''):`<div class="inline-note green">Todo el trabajo completado ya tiene pieza de contenido creada.</div>`}
+
+ <div class="eyebrow">Content queue</div>
+ ${ready.length?ready.map(x=>{const a=S.appts.find(a=>a.id===x.apptId),c=a?cli(a.clientId):null;return `<div class="content-row"><div class="content-thumb">${SVG.spark}</div><div class="body"><b>${esc(c?.name||'Contenido')} · ${esc(x.format)}</b><span>${a?a.services.map(s=>esc(s.name)).join(' + '):'Pieza generada'}</span><small>${x.status==='ready'?'lista para publicar':'publicada'}</small></div><button class="btn ghost sm" data-act="publish-content" data-id="${x.id}">Publicar</button></div>`}).join(''):`<div class="card soft"><div class="card-title">Aún no hay piezas listas.</div><div class="card-sub">Crea la primera desde una cita completada de arriba.</div></div>`}
+
+ <div class="eyebrow">Plan simple de la semana</div>
+ <div class="content-plan">
+   <div class="plan-item"><div class="dayn">Lun</div><div><b>Before / After</b><span>Transformación reciente + CTA de reservas</span></div><span class="tag t-blue">Post</span></div>
+   <div class="plan-item"><div class="dayn">Mié</div><div><b>Proceso corto</b><span>Reel de 7–12 segundos desde un resultado real</span></div><span class="tag t-new">Reel</span></div>
+   <div class="plan-item"><div class="dayn">Vie</div><div><b>Disponibilidad</b><span>Story usando huecos reales de tu agenda</span></div><span class="tag t-amb">Story</span></div>
+ </div>
+ <div class="ai" style="margin-top:13px"><div class="head">${SVG.spark} Contenido inteligente</div><p>La ventaja de Beauty OS no es “otra IA que escribe captions”. Es que sabe <b>qué servicio hiciste, cuándo, a quién, cuánto cobraste y qué espacios tienes libres</b>; el contenido nace del negocio.</p></div><div style="height:20px"></div>`;
+}
+
+
+function vSetup(){
+ const p=setupProgress(),inv=initialInvestment(),lp=lifetimeProfit(),pct=inv?Math.min(100,Math.round(lp/inv*100)):100;
+ const cats=[...new Set((S.setup?.items||[]).map(x=>x.category))];
+ return `<button class="back" data-go="more">${SVG.back} Más</button><h2 class="sec">Mi Setup</h2><div class="page-intro">Para quien empieza: qué necesitas, qué te falta y cuánto has invertido. Cuando el negocio madura, esta sección deja de estorbar y queda como referencia.</div>
+ <div class="setup-hero"><div class="mono tiny">BUSINESS READINESS</div><div class="pct">${p.pct}%</div><div class="card-sub">${p.done} de ${p.total} fundamentos listos.</div><div class="setup-track"><i style="width:${p.pct}%"></i></div></div>
+ ${cats.map(cat=>`<div class="eyebrow">${cat}</div><div class="checklist">${S.setup.items.filter(x=>x.category===cat).map(x=>`<label class="checkitem"><input type="checkbox" data-setup-id="${x.id}" ${x.done?'checked':''}><div class="ct"><b>${esc(x.label)}</b><span>${x.done?'Listo':'Pendiente'}</span></div></label>`).join('')}</div>`).join('')}
+
+ <div class="eyebrow">Inversión inicial</div><div class="card"><div class="investment-big">${money(inv)}</div><div class="card-sub">Beneficio registrado para recuperar inversión: ${money(lp)}.</div><div class="setup-track"><i style="width:${pct}%"></i></div><div class="tiny" style="margin-top:6px">${pct}% recuperado · faltan ${money(Math.max(0,inv-lp))}</div><div style="margin-top:12px">${(S.investments||[]).map(x=>`<div class="investment-row"><div><b>${esc(x.name)}</b><small>${esc(x.category)}</small></div><b>${money2(x.amount)}</b></div>`).join('')}</div><button class="btn ghost full sm" style="margin-top:10px" data-act="new-investment">${SVG.plus} Añadir inversión</button></div>
+
+ <div class="eyebrow">Business knowledge</div><div class="knowledge">
+   <div class="knowledge-item"><b>Precio ≠ ganancia</b><p>Aprende a separar precio, material, gastos y beneficio real antes de decidir cuánto “hiciste”.</p></div>
+   <div class="knowledge-item"><b>Cuándo reponer productos</b><p>El inventario se conecta con las reservas futuras para que comprar deje de depender de la memoria.</p></div>
+   <div class="knowledge-item"><b>Deposits y cancelaciones</b><p>Cómo proteger tiempo reservado sin convertir el negocio en una experiencia rígida.</p></div>
+   <div class="knowledge-item"><b>Contenido que nace del servicio</b><p>Antes/after, disponibilidad y transformaciones reales son la materia prima del Content Studio.</p></div>
+ </div><div style="height:20px"></div>`;
+}
+
+function vMore(){
+ const p=setupProgress(),critical=S.inv.filter(i=>inventoryForecast(i).shortage>0||i.pct<25).length;
+ return `<div class="more-hero"><h2 class="sec">Más</h2><p>Herramientas para entender y hacer crecer el negocio sin llenar la barra principal con diez pestañas.</p></div>
+ <div class="more-grid">
+  ${tile('clientes','people','Clientas',`${S.clients.filter(c=>c.active!==false).length} perfiles`,'')}
+  ${tile('dinero','briefcase','Dinero',`${money(M.monthProfit)} beneficio`,'green')}
+  ${tile('inventario','box','Inventario',`${critical} alertas`,'amber')}
+  ${tile('setup','settings','Mi Setup',`${p.pct}% listo`,'blue')}
+  ${tile('ia','spark','Beauty AI','Prioridades del negocio','')}
+  ${tile('servicios','briefcase','Servicios','Precio + coste + tiempo','')}
+  ${tile('booking','link','Reservas','Página pública','blue')}
+  ${tile('settings','settings','Ajustes','Partner + preferencias','')}
+ </div><div style="height:20px"></div>`;
 }
 
 function vPartner(){
  const p=S.partner,mrr=p.active*19.99,earn=mrr*p.rate;
- return `<button class="back" data-go="home">${SVG.back} Inicio</button><h2 class="sec">Beauty OS Partner</h2><div class="ledger" style="border-radius:20px"><div class="lbl">Comisiones estimadas</div><div class="big">${money(earn)}</div><div class="sub">${p.active.toLocaleString()} profesionales activas · ${Math.round(p.rate*100)}% recurrente</div><div class="rows"><div class="lrow"><span>Pendiente de pago</span><b>${money(p.pending)}</b></div><div class="lrow"><span>Acumulado histórico</span><b>${money(p.lifetime)}</b></div><div class="lrow total"><span>MRR GENERADO</span><b>${money(mrr)}</b></div></div></div>
+ return `<button class="back" data-go="settings">${SVG.back} Ajustes</button><h2 class="sec">Beauty OS Partner</h2><div class="ledger" style="border-radius:20px"><div class="lbl">Comisiones estimadas</div><div class="big">${money(earn)}</div><div class="sub">${p.active.toLocaleString()} profesionales activas · ${Math.round(p.rate*100)}% recurrente</div><div class="rows"><div class="lrow"><span>Pendiente de pago</span><b>${money(p.pending)}</b></div><div class="lrow"><span>Acumulado histórico</span><b>${money(p.lifetime)}</b></div><div class="lrow total"><span>MRR GENERADO</span><b>${money(mrr)}</b></div></div></div>
  <div class="grid2" style="margin-top:10px"><div class="stat"><div class="k">Nuevas este mes</div><div class="v">${p.newThisMonth}</div><div class="d up">▲ 22%</div></div><div class="stat"><div class="k">Trials activas</div><div class="v">${p.trials}</div><div class="d flat">41% convierten</div></div><div class="stat"><div class="k">Churn</div><div class="v">${p.churn}%</div><div class="d up">▼ saludable</div></div><div class="stat"><div class="k">Por activa</div><div class="v">${money2(19.99*p.rate)}</div><div class="d flat">antes de ajustes netos</div></div></div>
  <div class="eyebrow">Amanda's Business Pack</div><div class="card"><div class="card-title">El partner distribuye más que un código.</div><div class="card-sub">Su audiencia puede recibir plantilla de servicios, duraciones, políticas y configuración inicial. Eso hace que recomendar Beauty OS tenga utilidad real.</div><div class="mono" style="margin-top:12px;font-size:11px;background:var(--shell);border:1px dashed var(--line);border-radius:10px;padding:11px;text-align:center">beautyos.app/amandabrows</div><button class="btn ghost full sm" style="margin-top:8px" data-act="copy-link">${SVG.link} Copiar enlace</button></div>
  <div class="eyebrow">Simulador</div><div class="card"><div class="split"><label class="fld"><em>Profesionales activas</em><input id="ppros" type="number" value="${p.active}" min="0"></label><label class="fld"><em>Comisión</em><select id="prate"><option value=".25" ${p.rate==.25?'selected':''}>25%</option><option value=".30" ${p.rate==.30?'selected':''}>30%</option><option value=".35" ${p.rate==.35?'selected':''}>35%</option><option value=".40" ${p.rate==.40?'selected':''}>40%</option></select></label></div><div class="card" style="background:var(--ink);color:#fff"><div class="lrow"><span>MRR referido</span><b id="pmrr">${money(mrr)}</b></div><div class="lrow total"><span>PARTNER / MES</span><b id="pearn">${money(earn)}</b></div></div></div><div style="height:20px"></div>`;
@@ -657,10 +906,26 @@ function vBooking(){
 }
 
 function vSettings(){
- return `<button class="back" data-go="home">${SVG.back} Inicio</button><h2 class="sec">Datos y ajustes</h2><div class="page-intro">Este prototipo guarda cambios en localStorage del navegador. Puedes cerrar y volver a abrir sin perderlos.</div>
- <div class="card"><div class="card-title">Persistencia</div><div class="card-sub">Clientas, servicios, citas, estados de cobro, recovery y gastos se guardan localmente.</div><button class="btn ghost full sm" style="margin-top:12px" data-act="export">${SVG.download} Exportar JSON</button></div>
- <div class="card"><div class="card-title">Restablecer demo</div><div class="card-sub">Borra tus cambios locales y restaura los datos originales del prototipo.</div><button class="btn red full sm" style="margin-top:12px" data-act="reset">${SVG.reset} Restaurar datos demo</button></div>
- <div class="card"><div class="card-title">Arquitectura financiera</div><div class="card-sub">Las citas guardan snapshots de precio, coste y duración. Cambiar un servicio hoy no modifica el historial de ayer.</div></div><div style="height:20px"></div>`;
+ const ps=S.partnerStatus||'not_applied';
+ return `<button class="back" data-go="more">${SVG.back} Más</button><h2 class="sec">Ajustes</h2><div class="page-intro">Preferencias del negocio, programa Partner y seguridad de tus datos.</div>
+ <div class="card">
+   <div class="setting-toggle"><div><b>Recordatorios de rebooking</b><span>${S.rebookingEnabled?'Activos: Beauty OS mostrará vencidas y próximas.':'Apagados: las clientas regresan por iniciativa propia.'}</span></div><div class="switch ${S.rebookingEnabled?'on':''}" data-act="toggle-rebooking"></div></div>
+   <div class="setting-toggle"><div><b>Calendario financiero</b><span>Beneficio por día + reservas futuras.</span></div><span class="tag t-grn">Activo</span></div>
+   <div class="setting-toggle"><div><b>Content Studio</b><span>Usa servicios completados como cola de contenido.</span></div><span class="tag t-blue">Activo</span></div>
+ </div>
+
+ <div class="eyebrow">Programa Partner</div>
+ <div class="partner-apply">
+   <div class="tiny">BEAUTY OS PARTNER</div>
+   <h3>${ps==='not_applied'?'Gana recomendando la plataforma':ps==='pending'?'Solicitud en revisión':'Tu programa Partner está activo'}</h3>
+   <p>${ps==='not_applied'?'Educators y profesionales pueden recibir comisión recurrente por las suscripciones activas que refieran.':ps==='pending'?'Tus datos ya fueron enviados en este prototipo. Cuando se aprueba, aparecen link, MRR, churn y comisiones.':'Administra miembros activos, MRR referido, comisión y tu Business Pack.'}</p>
+   <div class="acts" style="margin-top:13px">${ps==='not_applied'?`<button class="btn green sm" data-act="partner-apply">Convertirme en Partner</button><button class="btn ghost sm" style="color:#fff;border-color:rgba(255,255,255,.25)" data-act="partner-demo">Ver demo</button>`:ps==='pending'?`<button class="btn ghost sm" style="color:#fff;border-color:rgba(255,255,255,.25)" data-act="partner-demo">Ver dashboard demo</button>`:`<button class="btn green sm" data-go="partner">Abrir Partner Dashboard</button>`}</div>
+ </div>
+
+ <div class="eyebrow">Datos</div>
+ <div class="card"><div class="card-title">Persistencia local</div><div class="card-sub">Clientas, servicios, citas, estados de cobro, inventario, contenido, setup y gastos se guardan en este navegador.</div><button class="btn ghost full sm" style="margin-top:12px" data-act="export">${SVG.download} Exportar JSON</button></div>
+ <div class="card"><div class="card-title">Restablecer demo</div><div class="card-sub">Borra cambios locales y restaura la muestra inicial.</div><button class="btn red full sm" style="margin-top:12px" data-act="reset">${SVG.reset} Restaurar datos demo</button></div>
+ <div class="card"><div class="card-title">Arquitectura financiera</div><div class="card-sub">Cada cita guarda snapshots de precio, coste y duración. Lo reservado no se convierte en ingreso hasta completar el servicio.</div></div><div style="height:20px"></div>`;
 }
 
 /* ---------- Sheets ---------- */
@@ -673,14 +938,17 @@ let tt;function toast(msg,amount){clearTimeout(tt);toastEl.innerHTML=(amount?`<b
 function sheetClient(c){
  const s=svc(c.preferredService),due=Math.round((expectedDate(c)-now)/DAY),late=due<0,stage=c.recovery?.stage||'none';
  const hist=S.appts.filter(a=>a.clientId===c.id).sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time)).slice(0,4);
+ const returnCard=S.rebookingEnabled
+  ? `<div class="card" style="background:${late?'var(--red-s)':'var(--pine-s)'};border-color:transparent"><div class="mono tiny" style="color:${late?'var(--red)':'var(--pine)'};text-transform:uppercase;letter-spacing:.1em">Próxima visita esperada</div><div class="num" style="font-size:25px;margin-top:5px">${fdate(expectedDate(c))}</div><div class="card-sub">${late?`${-due} días tarde · oportunidad ${money(s?.price||0)}`:`en ${due} días`} · recovery: ${stage}</div></div>`
+  : `<div class="card" style="background:var(--paper2)"><div class="mono tiny">ÚLTIMA VISITA</div><div class="num" style="font-size:25px;margin-top:5px">${fdate(new Date(c.lastDate+'T12:00:00'))}</div><div class="card-sub">Los recordatorios de regreso están apagados para este negocio.</div></div>`;
  openSheet(`
- <div class="card" style="background:${late?'var(--red-s)':'var(--pine-s)'};border-color:transparent"><div class="mono tiny" style="color:${late?'var(--red)':'var(--pine)'};text-transform:uppercase;letter-spacing:.1em">Próxima visita esperada</div><div class="num" style="font-size:25px;margin-top:5px">${fdate(expectedDate(c))}</div><div class="card-sub">${late?`${-due} días tarde · oportunidad ${money(s?.price||0)}`:`en ${due} días`} · recovery: ${stage}</div></div>
- <div class="card"><div class="lrow" style="color:var(--ink2)"><span>Última visita</span><b style="color:var(--ink)">${fdate(new Date(c.lastDate+'T12:00:00'))}</b></div><div class="lrow" style="color:var(--ink2)"><span>Servicio habitual</span><b style="color:var(--ink)">${esc(s?.name||'—')}</b></div><div class="lrow" style="color:var(--ink2)"><span>Lifetime</span><b style="color:var(--ink)">${money(c.lifetime)}</b></div><div class="lrow" style="color:var(--ink2)"><span>Visitas</span><b style="color:var(--ink)">${c.visits}</b></div></div>
+ ${returnCard}
+ <div class="card"><div class="lrow" style="color:var(--ink2)"><span>Servicio habitual</span><b style="color:var(--ink)">${esc(s?.name||'—')}</b></div><div class="lrow" style="color:var(--ink2)"><span>Lifetime</span><b style="color:var(--ink)">${money(c.lifetime)}</b></div><div class="lrow" style="color:var(--ink2)"><span>Visitas</span><b style="color:var(--ink)">${c.visits}</b></div></div>
  <div class="card"><div class="card-title">Contacto</div><div class="card-sub">${esc(c.phone)}<br>${esc(c.email)}</div>${c.notes?`<div class="card-sub" style="margin-top:7px">${esc(c.notes)}</div>`:''}</div>
  ${hist.length?`<div class="eyebrow plain" style="margin-top:16px">Historial reciente</div>${hist.map(a=>`<div class="row" data-appt="${a.id}"><div class="row-main"><div class="n">${a.services.map(x=>esc(x.name)).join(' + ')}</div><div class="m">${a.date} · ${a.time} · ${a.status}</div></div><div class="r"><div class="mono" style="font-size:11px">${money(a.status==='completed'?aTotal(a):aBase(a))}</div></div></div>`).join('')}`:''}
- ${late&&stage==='none'?`<div class="card"><div class="mono tiny">MENSAJE SUGERIDO</div><textarea rows="3" id="msg">Hola ${esc(c.name.split(' ')[0])} 🤍 ya pasó tu ventana habitual de ${esc(s?.name||'servicio')}. Tengo disponibilidad esta semana si quieres reservar.</textarea><button class="btn b full" style="margin-top:9px" data-act="contact-client" data-id="${c.id}">${SVG.send} Marcar como contactada</button></div>`:''}
- ${stage==='contacted'?`<div class="inline-note">Mensaje enviado. Todavía no contamos dinero. El siguiente paso es que reserve.</div><button class="btn b full" data-act="book-recovery" data-id="${c.id}">${SVG.cal} Registrar reserva recuperada</button>`:''}
- ${stage==='booked'?`<div class="inline-note green">Esta clienta reservó nuevamente. El dinero sigue siendo “booked” hasta completar la cita.</div>`:''}
+ ${S.rebookingEnabled&&late&&stage==='none'?`<div class="card"><div class="mono tiny">MENSAJE SUGERIDO</div><textarea rows="3" id="msg">Hola ${esc(c.name.split(' ')[0])} 🤍 ya pasó tu ventana habitual de ${esc(s?.name||'servicio')}. Tengo disponibilidad esta semana si quieres reservar.</textarea><button class="btn b full" style="margin-top:9px" data-act="contact-client" data-id="${c.id}">${SVG.send} Marcar como contactada</button></div>`:''}
+ ${S.rebookingEnabled&&stage==='contacted'?`<div class="inline-note">Mensaje enviado. Todavía no contamos dinero. El siguiente paso es que reserve.</div><button class="btn b full" data-act="book-recovery" data-id="${c.id}">${SVG.cal} Registrar reserva recuperada</button>`:''}
+ ${S.rebookingEnabled&&stage==='booked'?`<div class="inline-note green">Esta clienta reservó nuevamente. El dinero sigue siendo “booked” hasta completar la cita.</div>`:''}
  <div class="sheet-actions"><button class="btn ghost" data-act="edit-client" data-id="${c.id}">${SVG.edit} Editar</button><button class="btn red" data-act="delete-client" data-id="${c.id}">${SVG.trash} Eliminar</button></div>
  `,c.name,`${c.visits} visitas · ${money(c.lifetime)} lifetime`);
 }
@@ -774,13 +1042,45 @@ function bookRecovery(c){
  S.appts.push(a);c.recovery.stage='booked';c.recovery.bookedApptId=a.id;save();return a;
 }
 
+
+function sheetContent(a){
+ const c=cli(a.clientId);
+ openSheet(`
+ <div class="card"><div class="card-title">${esc(c?.name||'Clienta')}</div><div class="card-sub">${a.services.map(s=>esc(s.name)).join(' + ')} · ${a.date}</div></div>
+ <div class="eyebrow plain" style="margin-top:14px">Before / After</div>
+ <div class="upload-pair">
+  <label class="upload-box">${SVG.camera}<b>Before</b><span id="beforeName">Subir foto</span><input id="beforeFile" type="file" accept="image/*"></label>
+  <label class="upload-box">${SVG.spark}<b>After</b><span id="afterName">Subir foto</span><input id="afterFile" type="file" accept="image/*"></label>
+ </div>
+ <div class="split" style="margin-top:12px"><label class="fld"><em>Formato</em><select id="cfmt"><option>Reel 9:16</option><option>Instagram Post</option><option>Story</option><option>Carousel</option></select></label><label class="fld"><em>Tono</em><select id="ctone"><option value="premium">Premium</option><option value="casual">Casual</option><option value="educational">Educativo</option></select></label></div>
+ <label class="fld"><em>Caption sugerida</em><textarea id="ccaption" class="caption-box">${esc(contentCaption(a,'premium'))}</textarea></label>
+ <div class="inline-note">Las imágenes del prototipo solo se usan para la preview de esta sesión; no las guardamos dentro de localStorage.</div>
+ <button class="btn b full" data-act="save-content" data-id="${a.id}">${SVG.spark} Generar kit de contenido</button>
+ `,'Crear contenido','Desde una cita completada');
+ setTimeout(()=>{
+   const tone=document.getElementById('ctone'),cap=document.getElementById('ccaption');
+   if(tone&&cap)tone.addEventListener('change',()=>cap.value=contentCaption(a,tone.value));
+   const bf=document.getElementById('beforeFile'),af=document.getElementById('afterFile');
+   if(bf)bf.addEventListener('change',()=>{document.getElementById('beforeName').textContent=bf.files?.[0]?.name||'Subir foto'});
+   if(af)af.addEventListener('change',()=>{document.getElementById('afterName').textContent=af.files?.[0]?.name||'Subir foto'});
+ });
+}
+function sheetInvestment(){
+ openSheet(`<label class="fld"><em>Concepto</em><input id="ivn" placeholder="Ej. Certificación avanzada"></label><div class="split"><label class="fld"><em>Monto</em><input id="iva" type="number" step=".01"></label><label class="fld"><em>Categoría</em><select id="ivc"><option>Educación</option><option>Equipo</option><option>Productos</option><option>Marketing</option><option>Otro</option></select></label></div><button class="btn b full" data-act="save-investment">${SVG.check} Añadir inversión</button>`,'Registrar inversión','Starter setup');
+}
+function sheetPartnerApply(){
+ openSheet(`<div class="card"><div class="card-title">Cómo funciona</div><div class="card-sub">Beauty educators y profesionales pueden ganar una comisión recurrente por suscriptores activos referidos. La aprobación real requeriría validación, términos y datos de pago.</div></div><label class="fld"><em>Nombre / marca</em><input id="pname" value="Amanda Brows"></label><label class="fld"><em>Instagram / TikTok</em><input id="psocial" placeholder="@usuario"></label><label class="fld"><em>¿Cómo promocionarías Beauty OS?</em><textarea id="pwhy" placeholder="Ej. estudiantes de mi curso, contenido educativo, comunidad..."></textarea></label><button class="btn green full" data-act="submit-partner">${SVG.check} Enviar solicitud</button>`,'Convertirme en Partner','Programa de referidos');
+}
+
 /* ---------- Events ---------- */
 document.body.addEventListener('click',e=>{
- const el=e.target.closest('[data-go],[data-act],[data-cli],[data-svc],[data-day],[data-filter],[data-appt]');
+ const el=e.target.closest('[data-go],[data-act],[data-cli],[data-svc],[data-day],[data-filter],[data-appt],[data-cal-day],[data-setup-id]');
  if(!el)return; const d=el.dataset;
  if(d.filter&&!d.go){S.filter=d.filter;save();if(S.screen!=='clientes')nav('clientes');else draw();return}
  if(d.go){if(d.filter)S.filter=d.filter;closeSheet();goto(d.go);return}
  if(d.day){S.selDay=d.day;save();draw();return}
+ if(d.calDay){const dt=new Date(d.calDay+'T12:00:00');S.calYear=dt.getFullYear();S.calMonth=dt.getMonth();S.calSelected=d.calDay;save();draw();return}
+ if(d.setupId){const it=S.setup?.items?.find(x=>x.id===d.setupId);if(it){it.done=!!el.checked;save();draw()}return}
  if(d.cli){sheetClient(cli(d.cli));return}
  if(d.svc){sheetService(svc(d.svc));return}
  if(d.appt){sheetAppointmentDetail(S.appts.find(x=>x.id===d.appt));return}
@@ -803,6 +1103,39 @@ document.body.addEventListener('click',e=>{
     else toast('beautyos.app/amandabrows');
     break;
   case 'book-preview': toast(`${svc(d.sid)?.name||'Servicio'} · flujo de reserva simulado.`); break;
+  case 'cal-prev':{
+    S.calMonth--;if(S.calMonth<0){S.calMonth=11;S.calYear--}
+    S.calSelected=iso(new Date(S.calYear,S.calMonth,1));save();draw();break;
+  }
+  case 'cal-next':{
+    S.calMonth++;if(S.calMonth>11){S.calMonth=0;S.calYear++}
+    S.calSelected=iso(new Date(S.calYear,S.calMonth,1));save();draw();break;
+  }
+  case 'cal-today': S.calYear=now.getFullYear();S.calMonth=now.getMonth();S.calSelected=iso(now);save();draw();break;
+  case 'create-content':{const a=S.appts.find(x=>x.id===d.id);if(a)sheetContent(a);break}
+  case 'save-content':{
+    const a=S.appts.find(x=>x.id===d.id);if(!a)break;
+    const item={id:uid('ct'),apptId:a.id,format:$('cfmt').value,tone:$('ctone').value,caption:$('ccaption').value.trim(),beforeName:$('beforeFile')?.files?.[0]?.name||'',afterName:$('afterFile')?.files?.[0]?.name||'',createdAt:new Date().toISOString(),status:'ready'};
+    S.content=S.content||[];S.content.push(item);save();closeSheet();goto('contenido');toast('Kit de contenido listo.','✓');break;
+  }
+  case 'publish-content':{
+    const x=(S.content||[]).find(x=>x.id===d.id);if(!x)break;x.status='published';x.publishedAt=new Date().toISOString();save();draw();toast('Marcado como publicado.','✓');break;
+  }
+  case 'inv-restock':{
+    const i=S.inv.find(x=>x.id===d.id);if(!i)break;i.left=i.reorderQty||50;i.pct=100;i.dias=30;save();draw();toast(`${i.name}: inventario repuesto.`,'✓');break;
+  }
+  case 'inv-use':{
+    const i=S.inv.find(x=>x.id===d.id);if(!i)break;i.left=Math.max(0,i.left-1);i.pct=Math.max(0,Math.round(i.pct-(100/Math.max(1,i.reorderQty||50))));save();draw();toast(`${i.name}: −1 uso.`);break;
+  }
+  case 'new-investment': sheetInvestment(); break;
+  case 'save-investment':{
+    if(!$('ivn').value.trim()||!(+$('iva').value>0)){toast('Completa concepto y monto.');break}
+    S.investments=S.investments||[];S.investments.push({id:uid('iv'),name:$('ivn').value.trim(),amount:+$('iva').value,category:$('ivc').value});save();closeSheet();draw();toast('Inversión registrada.');break;
+  }
+  case 'toggle-rebooking': S.rebookingEnabled=!S.rebookingEnabled;save();draw();toast(`Rebooking ${S.rebookingEnabled?'activado':'desactivado'}.`);break;
+  case 'partner-apply': sheetPartnerApply(); break;
+  case 'submit-partner': S.partnerStatus='pending';save();closeSheet();draw();toast('Solicitud Partner enviada.','✓');break;
+  case 'partner-demo': closeSheet();goto('partner');break;
 
   case 'create-client':{
     const name=$('cn').value.trim();if(!name){toast('Escribe el nombre de la clienta.');break}
@@ -848,7 +1181,7 @@ document.body.addEventListener('click',e=>{
   }
   case 'complete-appt':{const a=S.appts.find(x=>x.id===d.id);closeSheet();sheetComplete(a);break}
   case 'confirm-complete':{
-    const a=S.appts.find(x=>x.id===d.id);if(!a)break;a.tip=+$('atip').value||0;a.discount=+$('afinaldis').value||0;a.status='completed';a.completedAt=new Date().toISOString();updateClientAfterCompletion(a);save();closeSheet();draw();toast('Servicio completado y cobrado.',money(aTotal(a)));break;
+    const a=S.appts.find(x=>x.id===d.id);if(!a)break;a.tip=+$('atip').value||0;a.discount=+$('afinaldis').value||0;a.status='completed';a.completedAt=new Date().toISOString();updateClientAfterCompletion(a);consumeInventoryForAppointment(a);save();closeSheet();draw();toast('Servicio completado y cobrado.',money(aTotal(a)));break;
   }
 
   case 'contact-client':{
